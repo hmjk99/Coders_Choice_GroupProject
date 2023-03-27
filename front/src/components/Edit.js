@@ -1,16 +1,23 @@
 import {useState} from 'react'
 
 const Edit = (props) =>{
-const [post, setpost] = useState({...props.post})
+const [post, setPost] = useState({...props.post})
+const handleChange = (event) => {
+  setPost({...post, [event.target.name]: event.target.value})
+}
+const handleSubmit = (event) =>{
+    event.preventDefault()
+    props.handleEdit(post)
+}
     return (
       <div>
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="date">Date: </label>
           <input
             type="text"
             name="date"
-            onChange={props.handleChange}
-            value={post.date}
+            onChange={handleChange}
+            placeholder={post.date}
           />
           <br />
           <br />
@@ -18,7 +25,7 @@ const [post, setpost] = useState({...props.post})
           <input
             type="text"
             name="author"
-            onChange={props.handleChange}
+            onChange={handleChange}
             value={post.author}
           />
           <br /> <br />
@@ -26,14 +33,14 @@ const [post, setpost] = useState({...props.post})
           <input
             type="text"
             name="img"
-            onChange={props.handleChange}
+            onChange={handleChange}
             value={post.img}
           />
           <label htmlFor="body"> Post </label>
           <textarea
             name="reservedForAdoption"
-            placeholder='post.body'
-            onChange={props.handleChange}
+            placeholder={post.body}
+            onChange={handleChange}
           ></textarea>
           <br />
           <input type="submit" />

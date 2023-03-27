@@ -1,21 +1,24 @@
 import React, {useEffect, useState} from 'react'
 import './App.css';
 import axios from 'axios'
+import Add from './components/Add'
+import Edit from './components/Edit'
+import Posts from './components/Posts'
 
 const App=()=>{
 const [posts, setPosts] = useState([])
 
 const getPosts = () => {
   axios.get('http://localhost:3000/').then((response) => {
-    setPosts(response)
+    setPosts(response.data)
   }).catch((error) => {
     console.log(error)
   })
 }
 
-const handleCreate = () => {
-  axios.post("http://locahost:3000/", createdModel).then((response) => {
-    let newPosts = [...posts, response.createdModel]
+const handleCreate = (createdModel) => {
+  axios.post("http://localhost:3000/", createdModel).then((response) => {
+    let newPosts = [...posts, response.data]
     setPosts(newPosts)
   })
 };
@@ -40,11 +43,20 @@ const handleEdit = (updatedModel) => {
   
   useEffect(() => {
     getPosts()
-  })
+  }, [])
   
   return (
     <div>
       <h1>React App</h1>
+      <Add handleCreate={handleCreate}/>
+      {posts.map((post)=>{
+        return(
+          <div>
+            <Posts post={post}/>
+            <Edit post={post} handleEdit={handleEdit}/>
+          </div>
+        )
+      })}
     </div>
   );
 }

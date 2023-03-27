@@ -1,6 +1,7 @@
 import {useState} from 'react'
 
 const Edit = (props) =>{
+const [post, setpost] = useState({...props.post})
     return (
       <div>
         <form onSubmit={props.handleSubmit}>

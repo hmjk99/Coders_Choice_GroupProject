@@ -40,7 +40,7 @@ const handleEdit = (updatedModel) => {
   
   useEffect(() => {
     getPosts()
-  })
+  },[])
   
   return (
     <div>

@@ -56,7 +56,7 @@ const handleEdit = (updatedModel) => {
         return(
           <div>
             <Posts post={post}/>
-            <Edit post={post} handleEdit={handleEdit}/>
+            <Edit post={post} handleEdit={handleEdit} />
           </div>
         )
       })}

@@ -27,9 +27,9 @@ const handleCreate = (createdModel) => {
 
 const handleDelete = (deletedModel) =>{
   axios.delete('http://localhost:3000/' + deletedModel._id).then((response) => {
-    let newModel = [posts.filter((post) => {
+    let newModel = posts.filter((post) => {
       return post._id !== deletedModel._id     
-    })]
+    })
     setPosts(newModel)
   })
 }
@@ -56,7 +56,8 @@ const handleEdit = (updatedModel) => {
         return(
           <div>
             <Posts post={post}/>
-            <Edit post={post} handleEdit={handleEdit} />
+            <Edit post={post} handleEdit={handleEdit}/>
+            <button onClick={()=>{handleDelete(post)}}>Delete</button>
           </div>
         )
       })}

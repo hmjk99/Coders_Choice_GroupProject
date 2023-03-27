@@ -7,6 +7,7 @@ import Posts from './components/Posts'
 
 const App=()=>{
 const [posts, setPosts] = useState([])
+const [displayEdit, setEdit] = useState(false)
 
 const getPosts = () => {
   axios.get('http://localhost:3000/').then((response) => {
@@ -42,6 +43,10 @@ const handleEdit = (updatedModel) => {
     setPosts(newModel)
   })
 }
+
+const showEdit = () =>{
+  setEdit(!displayEdit)
+}
   
   useEffect(() => {
     getPosts()
@@ -56,7 +61,8 @@ const handleEdit = (updatedModel) => {
         return(
           <div>
             <Posts post={post}/>
-            <Edit post={post} handleEdit={handleEdit}/>
+            <button onClick={showEdit}>Edit</button>
+            {displayEdit ? <Edit post={post} handleEdit={handleEdit} showEdit={showEdit}/> : null}
             <button onClick={()=>{handleDelete(post)}}>Delete</button>
           </div>
         )

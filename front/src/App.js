@@ -62,7 +62,7 @@ const showEdit = () =>{
       <h1>React App</h1>
       <button onClick={showAdd}>Add New Post</button>
       { displayAdd ? 
-      <Add handleCreate={handleCreate} />
+      <Add showAdd={showAdd} handleCreate={handleCreate} />
       : null}
       {posts.map((post) => {
         return (

@@ -13,7 +13,7 @@ const getPosts = () => {
   })
 }
 
-const handleCreate = () => {
+const handleCreate = (createdModel) => {
   axios.post("http://locahost:3000/", createdModel).then((response) => {
     let newPosts = [...posts, response.createdModel]
     setPosts(newPosts)
@@ -40,7 +40,7 @@ const handleEdit = (updatedModel) => {
   
   useEffect(() => {
     getPosts()
-  })
+  },[])
   
   return (
     <div>

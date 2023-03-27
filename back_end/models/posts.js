@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-module.exports = new mongoose.Schema(
+const PostCollection = new mongoose.Schema(
 {
     date:String,
     author:String,
@@ -9,3 +9,6 @@ module.exports = new mongoose.Schema(
     tags:[String]
 }
 )
+ const outputCollection = mongoose.model('PostCollection', PostCollection)
+ 
+ module.exports = outputCollection

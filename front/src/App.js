@@ -7,6 +7,9 @@ import Posts from './components/Posts'
 
 const App=()=>{
 const [posts, setPosts] = useState([])
+const [displayEdit, setEdit] = useState(false)
+const [displayAdd, setDisplayAdd] = useState(false)
+
 
 const getPosts = () => {
   axios.get('http://localhost:3000/').then((response) => {
@@ -15,7 +18,9 @@ const getPosts = () => {
     console.log(error)
   })
 }
-
+const showAdd = () => {
+setDisplayAdd(!displayAdd)
+}
 const handleCreate = (createdModel) => {
 
   axios.post("http://localhost:3000/", createdModel).then((response) => {
@@ -42,6 +47,10 @@ const handleEdit = (updatedModel) => {
     setPosts(newModel)
   })
 }
+
+const showEdit = () =>{
+  setEdit(!displayEdit)
+}
   
   useEffect(() => {
     getPosts()
@@ -51,15 +60,19 @@ const handleEdit = (updatedModel) => {
   return (
     <div>
       <h1>React App</h1>
-      <Add handleCreate={handleCreate}/>
-      {posts.map((post)=>{
-        return(
+      <button onClick={showAdd}>Add New Post</button>
+      { displayAdd ? 
+      <Add handleCreate={handleCreate} />
+      : null}
+      {posts.map((post) => {
+        return (
           <div>
             <Posts post={post}/>
-            <Edit post={post} handleEdit={handleEdit}/>
+            <button onClick={showEdit}>Edit</button>
+            {displayEdit ? <Edit post={post} handleEdit={handleEdit} showEdit={showEdit}/> : null}
             <button onClick={()=>{handleDelete(post)}}>Delete</button>
           </div>
-        )
+        );
       })}
     </div>
   );

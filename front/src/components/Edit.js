@@ -8,6 +8,7 @@ const handleChange = (event) => {
 const handleSubmit = (event) =>{
     event.preventDefault()
     props.handleEdit(post)
+    props.showEdit()
 }
     return (
       <div>

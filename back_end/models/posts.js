@@ -6,7 +6,6 @@ const PostCollection = new mongoose.Schema(
     author:String,
     img:String,
     body:String,
-    tags:[String]
 }
 )
  const outputCollection = mongoose.model('PostCollection', PostCollection)

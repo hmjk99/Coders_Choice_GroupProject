@@ -17,7 +17,7 @@ const handleSubmit = (event) =>{
             type="text"
             name="date"
             onChange={handleChange}
-            placeholder={post.date}
+            value={post.date}
           />
           <br />
           <br />
@@ -39,7 +39,7 @@ const handleSubmit = (event) =>{
           <label htmlFor="body"> Post </label>
           <textarea
             name="reservedForAdoption"
-            placeholder={post.body}
+            value={post.body}
             onChange={handleChange}
           ></textarea>
           <br />

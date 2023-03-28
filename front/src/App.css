@@ -19,7 +19,10 @@ img{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 32rem
+  width: 32rem;
+  margin-bottom: .3rem;
+  border:2px solid rgba(158, 186, 207, 0.611);
+  box-shadow: 1px 1px .3rem rgba(145, 149, 114, 0.71);
 }
 .food{
   margin: 1.5rem;
@@ -27,7 +30,8 @@ img{
 }
 h1{
   font-size: 4rem;
-  margin: 1.5rem
+  margin: 1.5rem;
+  color:rgb(66, 55, 45);
 }
 p{
   margin: 0;

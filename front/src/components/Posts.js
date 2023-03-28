@@ -1,10 +1,10 @@
 const Post = (props) =>{
     return(
-        <div>
-            <h1>{props.post.date}</h1>
-            <h1>{props.post.author}</h1>
+        <div className="food">
+            <h3>Date: {props.post.date}</h3>
+            <h3>Author: {props.post.author}</h3>
             <img src={props.post.img}/>
-            <h1>{props.post.body}</h1>
+            <p>{props.post.body}</p>
         </div>
     )
 }

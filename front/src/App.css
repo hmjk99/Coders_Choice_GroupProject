@@ -1,0 +1,66 @@
+body{
+  background-color: rgb(250, 255, 223);
+  font-family: 'Edu NSW ACT Foundation', cursive;
+}
+#content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+img{
+  width: 25rem;
+  height: 25rem;
+  object-fit: contain;
+}
+.indv{
+  background-color: rgb(198, 198, 246);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32rem
+}
+.food{
+  margin: 1.5rem;
+  text-align: center;
+}
+h1{
+  font-size: 4rem;
+  margin: 1.5rem
+}
+p{
+  margin: 0;
+  line-height: 1.5;
+}
+button, [type= "submit"]{
+  width: 8rem;
+  height: 2rem;
+  border-radius: 10px;
+  background-color: rgb(244, 197, 205);
+  border: 1px solid black;
+  margin: 1rem
+}
+#add{
+  background-color:rgb(198, 198, 246);
+  margin: 2rem;
+  border-radius: 10px;
+}
+form{
+  margin: 2rem;
+  text-align: center;
+}
+label{
+  margin-right: 10px
+}
+#edit{
+  background-color: rgb(254, 255, 213);
+  border-radius: 10px;
+  width: 20rem;
+  height: 23rem;
+}
+textarea{
+  resize: none;
+  width: 12rem;
+  height: 6rem;
+}

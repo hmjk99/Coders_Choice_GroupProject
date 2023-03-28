@@ -58,15 +58,18 @@ const showEdit = () =>{
   },[])
   
   return (
-    <div>
-      <h1>React App</h1>
+    <div id='content'>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;700&display=swap');
+      </style>
+      <h1>Snacker!</h1>
       <button onClick={showAdd}>Add New Post</button>
       { displayAdd ? 
       <Add showAdd={showAdd} handleCreate={handleCreate} />
       : null}
       {posts.map((post) => {
         return (
-          <div>
+          <div className='indv'>
             <Posts post={post}/>
             <button onClick={showEdit}>Edit</button>
             {displayEdit ? <Edit post={post} handleEdit={handleEdit} showEdit={showEdit}/> : null}

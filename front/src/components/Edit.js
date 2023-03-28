@@ -11,9 +11,9 @@ const handleSubmit = (event) =>{
     props.showEdit()
 }
     return (
-      <div>
+      <div id='edit'>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="date">Date: </label>
+          <label htmlFor="date">Date:</label>
           <input
             type="text"
             name="date"
@@ -22,27 +22,31 @@ const handleSubmit = (event) =>{
           />
           <br />
           <br />
-          <label htmlFor="author">Author: </label>
+          <label htmlFor="author">Author:</label>
           <input
             type="text"
             name="author"
             onChange={handleChange}
             value={post.author}
           />
-          <br /> <br />
-          <label htmlFor="img">image URL: </label>
+          <br />
+          <br />
+          <label htmlFor="img">Image URL:</label>
           <input
             type="text"
             name="img"
             onChange={handleChange}
             value={post.img}
           />
-          <label htmlFor="body"> Post </label>
+          <br />
+          <br />
+          <label htmlFor="body"> Post:</label>
           <textarea
-            name="reservedForAdoption"
+            name="body"
             value={post.body}
             onChange={handleChange}
           ></textarea>
+          <br />
           <br />
           <input type="submit" />
         </form>
